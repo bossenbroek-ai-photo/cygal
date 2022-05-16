@@ -1,0 +1,15 @@
+name: Lighthouse
+on: [push]
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: yarn
+
+      - run: yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
+      - run: cd cygal && yarn install && yarn build
+      - run: cd cygal && lhci autorun
