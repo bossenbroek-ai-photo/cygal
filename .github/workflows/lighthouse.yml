@@ -6,26 +6,7 @@ jobs:
     steps:
       - name: Install packages
         run: |
-          lsb_release -a
-          sudo apt-get update
-          sudo mkdir -p /etc/apt/sources.list.d/
-          sudo mkdir -p /etc/apt/preferences.d/
-          echo "deb http://deb.debian.org/debian bullseye main" | sudo tee -a /etc/apt/sources.list
-          echo "deb http://deb.debian.org/debian bullseye-updates main"  | sudo tee -a /etc/apt/sources.list
-          echo "deb http://deb.debian.org/debian-security bullseye-security main" | sudo tee -a /etc/apt/sources.list
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DCC9EFBF77E11517
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AA8E81B4331F7F50
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
-          printf "Package: *\nPin: release a=eoan\nPin-Priority: 500\n" | sudo tee -a /etc/apt/preferences.d/chromium.pref
-          printf "Package: *\nPin: origin \"deb.debian.org\"\nPin-Priority: 300\n" | sudo tee -a /etc/apt/preferences.d/chromium.pref
-          printf "Package: chromium*\nPin: origin \"deb.debian.org\"\nPin-Priority: 700" | sudo tee -a /etc/apt/preferences.d/chromium.pref
-          sudo apt update
-          sudo apt install chromium
-      - name: Run headless chromium as test
-        run:
-          which chromium
-          /usr/bin/chromium --no-sandbox  --headless --disable-gpu &
+          sudo apt-get wget
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -36,7 +17,12 @@ jobs:
           cd cygal && yarn install && yarn build
       - name: Install lighthouse and run
         run: |
-          yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
-          cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium; lhci autorun  --chromePath=/usr/bin/chromium --no-sandbox  --headless --disable-gpu
+          wget "https://download-chromium.appspot.com/dl/Linux_x64?type=snapshots" --no-check-certificate -q -O chrome.zip && unzip chrome.zip
+          export DISPLAY=:99.0
+          export CHROME_PATH="$(pwd)/chrome-linux/chrome"
+          sh -e /etc/init.d/xvfb start
+          sleep 3
+          yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2 chromium-launcher
+          cd cygal && lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
