@@ -10,16 +10,16 @@ jobs:
           sudo apt-get update
           sudo mkdir -p /etc/apt/sources.list.d/
           sudo mkdir -p /etc/apt/preferences.d/
-          sudo echo "deb http://deb.debian.org/debian buster main" >> /etc/apt/sources.list.d/debian.list
-          sudo echo "deb http://deb.debian.org/debian buster-updates main" >> /etc/apt/sources.list.d/debian.list
-          sudo echo "deb http://deb.debian.org/debian-security buster-updates main" >> /etc/apt/sources.list.d/debian.list
+          echo "deb http://deb.debian.org/debian buster main" | sudo tee -a /etc/apt/sources.list
+          echo "deb http://deb.debian.org/debian buster-updates main"  | sudo tee -a /etc/apt/sources.list
+          echo "deb http://deb.debian.org/debian-security buster-updates main" | sudo tee -a /etc/apt/sources.list
           sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DCC9EFBF77E11517
           sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
           sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AA8E81B4331F7F50
           sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
-          sudo printf "Package: *\nPin: release a=eoan\nPin-Priority: 500\n" >> /etc/apt/preferences.d/chromium.pref
-          sudo printf "Package: *\nPin: origin \"deb.debian.org\"\nPin-Priority: 300\n" >> /etc/apt/preferences.d/chromium.pref
-          sudo printf "Package: chromium*\nPin: origin \"deb.debian.org\"\nPin-Priority: 700" >> /etc/apt/preferences.d/chromium.pref
+          printf "Package: *\nPin: release a=eoan\nPin-Priority: 500\n" | sudo tee -a /etc/apt/preferences.d/chromium.pref
+          printf "Package: *\nPin: origin \"deb.debian.org\"\nPin-Priority: 300\n" | sudo tee -a /etc/apt/preferences.d/chromium.pref
+          printf "Package: chromium*\nPin: origin \"deb.debian.org\"\nPin-Priority: 700" | sudo tee -a /etc/apt/preferences.d/chromium.pref
           sudo apt update
           sudo apt install chromium
       - name: Run headless chromium as test
