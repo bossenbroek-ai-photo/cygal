@@ -8,15 +8,22 @@ jobs:
         run: |
           lsb_release -a
           sudo apt-get update
-          sudo apt-get install --assume-yes wget chromium-browser # Install to get all dependencies
-          sudo apt-get remove --assume-yes chromium-browser # Remove to remove snap version
-          wget http://ftp.us.debian.org/debian/pool/main/c/chromium/chromium_101.0.4951.64-1_amd64.deb
-          sudo dpkg -i chromium_101.0.4951.64-1_amd64.deb
-          sudo apt -y -f install
+          sudo echo "deb http://deb.debian.org/debian buster main" >> /etc/apt/sources.list.d/debian.list
+          sudo echo "deb http://deb.debian.org/debian buster-updates main" >> /etc/apt/sources.list.d/debian.list
+          sudo echo "deb http://deb.debian.org/debian-security buster-updates main" >> /etc/apt/sources.list.d/debian.list
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DCC9EFBF77E11517
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AA8E81B4331F7F50
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
+          sudo printf "Package: *\nPin: release a=eoan\nPin-Priority: 500\n" >> /etc/apt/preferences.d/chromium.pref
+          sudo printf "Package: *\nPin: origin \"deb.debian.org\"\nPin-Priority: 300\n" >> /etc/apt/preferences.d/chromium.pref
+          sudo printf "Package: chromium*\nPin: origin \"deb.debian.org\"\nPin-Priority: 700" >> /etc/apt/preferences.d/chromium.pref
+          sudo apt update
+          sudo apt install chromium
       - name: Run headless chromium as test
         run:
-          which chromium-browser
-          /usr/bin/chromium-browser --no-sandbox  --headless --disable-gpu &
+          which chromium
+          /usr/bin/chromium --no-sandbox  --headless --disable-gpu &
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -28,6 +35,6 @@ jobs:
       - name: Install lighthouse and run
         run: |
           yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
-          cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium-browser; lhci autorun
+          cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium; lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
