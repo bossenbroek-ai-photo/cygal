@@ -20,6 +20,6 @@ jobs:
       - name: Install lighthouse and run
         run: |
           yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
-          cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium-browser; lhci autorun --collect.settings.chromeFlags=--no-sandbox
+          cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium-browser; lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
