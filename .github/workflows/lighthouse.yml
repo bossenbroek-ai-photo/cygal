@@ -7,7 +7,8 @@ jobs:
       - name: Install packages
         run: |
           sudo apt-get update
-          sudo apt-get install wget
+          sudo apt-get install --assume-yes wget chromium # Install to get all dependencies
+          sudo apt-get remove --assume-yes chromium # Remove to remove snap version
           wget http://ftp.us.debian.org/debian/pool/main/c/chromium/chromium_101.0.4951.64-1_amd64.deb
           sudo dpkg -i chromium_101.0.4951.64-1_amd64.deb
           sudo apt -y -f install
