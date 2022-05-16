@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Install packages
         run: |
-          sudo apt-get install wget
+          sudo apt-get install wget xvfb
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -18,10 +18,10 @@ jobs:
       - name: Install lighthouse and run
         run: |
           wget "https://download-chromium.appspot.com/dl/Linux_x64?type=snapshots" --no-check-certificate -q -O chrome.zip && unzip chrome.zip
-          export DISPLAY=:99.0
+          # export DISPLAY=:99.0
           export CHROME_PATH="$(pwd)/chrome-linux/chrome"
-          sh -e /etc/init.d/xvfb start
-          sleep 3
+          #Xvfb :99 &
+          #sleep 3
           yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2 chromium-launcher
           cd cygal && lhci autorun
         env:
