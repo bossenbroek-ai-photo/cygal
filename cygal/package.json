@@ -1,4 +1,7 @@
 {
+  "dependencies": {
+    "three": "^0.140.2"
+  },
   "devDependencies": {
     "@playwright/test": "^1.21.0",
     "@sveltejs/adapter-auto": "next",
@@ -14,7 +17,8 @@
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.10.1",
     "tslib": "^2.3.1",
-    "typescript": "~4.6.2"
+    "typescript": "~4.6.2",
+    "vite-plugin-iso-import": "^0.1.3"
   },
   "name": "cygal",
   "scripts": {
