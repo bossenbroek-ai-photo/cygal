@@ -14,9 +14,12 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - name: Install lighthouse
-        run: yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
-      - name: Build page and run lighthouse
+      - name: cygal yarn install and build
         run: |
           cd cygal && yarn install && yarn build
-          cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium; lhci autorun --collect.settings.chromeFlags=--no-sandbox
+      - name: Install lighthouse and run
+        run: |
+          yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
+          cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/snap/bin/chromium; lhci autorun --collect.settings.chromeFlags=--no-sandbox
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
