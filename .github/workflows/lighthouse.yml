@@ -4,15 +4,19 @@ jobs:
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt-get update
-      - run: sudo apt-get install -y xvfb dbus-x11 --no-install-recommends
-      - run: sudo apt-get install --assume-yes chromium-browser
+      - name: Install packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb dbus-x11 --no-install-recommends
+          sudo apt-get install --assume-yes chromium-browser
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 18
           cache: yarn
-
-      - run: yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
-      - run: cd cygal && yarn install && yarn build
-      - run: cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium; lhci autorun --collect.settings.chromeFlags=--no-sandbox
+      - name: Install lighthouse
+        run: yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
+      - name: Build page and run lighthouse
+        run: |
+          cd cygal && yarn install && yarn build
+          cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium; lhci autorun --collect.settings.chromeFlags=--no-sandbox
