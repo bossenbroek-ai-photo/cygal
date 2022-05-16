@@ -4,6 +4,7 @@ jobs:
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
+      - run: sudo apt-get install -y xvfb dbus-x11 --no-install-recommends
       - run: sudo apt-get install --assume-yes chromium-browser
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -13,4 +14,4 @@ jobs:
 
       - run: yarn global add lighthouse@9.6.1 @lhci/cli@0.8.2
       - run: cd cygal && yarn install && yarn build
-      - run: cd cygal && lhci autorun
+      - run: cd cygal && export LIGHTHOUSE_CHROMIUM_PATH=/usr/bin/chromium; lhci autorun
