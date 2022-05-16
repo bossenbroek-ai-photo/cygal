@@ -8,6 +8,8 @@ jobs:
         run: |
           lsb_release -a
           sudo apt-get update
+          sudo mkdir -p /etc/apt/sources.list.d/
+          sudo mkdir -p /etc/apt/preferences.d/
           sudo echo "deb http://deb.debian.org/debian buster main" >> /etc/apt/sources.list.d/debian.list
           sudo echo "deb http://deb.debian.org/debian buster-updates main" >> /etc/apt/sources.list.d/debian.list
           sudo echo "deb http://deb.debian.org/debian-security buster-updates main" >> /etc/apt/sources.list.d/debian.list
