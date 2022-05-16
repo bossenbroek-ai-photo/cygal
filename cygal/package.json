@@ -11,6 +11,7 @@
     "@types/three": "^0.140.0",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
+    "esbuild": "^0.14.39",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^4.0.0",
@@ -30,6 +31,7 @@
   "name": "cygal",
   "scripts": {
     "build": "svelte-kit build",
+    "build:svelteconfig": "esbuild svelte.config.ts --outfile=svelte.config.js",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "dev": "svelte-kit dev",
