@@ -9,6 +9,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y xvfb dbus-x11 --no-install-recommends
           sudo apt-get install --assume-yes chromium-browser
+      - name: Run headless chromium as test
+        run:
+          /usr/bin/chromium-browser --no-sandbox  --headless --disable-gpu &
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
