@@ -7,10 +7,13 @@ jobs:
       - name: Install packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb dbus-x11 --no-install-recommends
-          sudo apt-get install --assume-yes chromium-browser
+          sudo apt-get instal wget
+          wget http://ftp.us.debian.org/debian/pool/main/c/chromium/chromium_101.0.4951.64-1_amd64.deb
+          sudo dpkg -i chromium_101.0.4951.64-1_amd64.deb
+          sudo apt -y -f install
       - name: Run headless chromium as test
         run:
+          which chromium-browser
           /usr/bin/chromium-browser --no-sandbox  --headless --disable-gpu &
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
