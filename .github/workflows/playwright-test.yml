@@ -20,4 +20,4 @@ jobs:
     - name: Install local dependencies
       run: cd cygal && yarn
     - name: Run pre-commit
-      uses: cd cygal && yarn test
+      run: cd cygal && yarn test
