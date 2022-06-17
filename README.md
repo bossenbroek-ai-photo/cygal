@@ -16,13 +16,6 @@ $ pipx install pre-commit
 done! ✨ 🌟 ✨
 ```
 
-```bash
-$ npm install -g prettier eslint
-+ eslint@8.17.0
-+ prettier@2.7.1
-added 83 packages from 51 contributors in 4.192s
-```
-
 Then run,
 
 ```bash
