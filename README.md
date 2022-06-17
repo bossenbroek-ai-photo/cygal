@@ -1,7 +1,9 @@
-# three-js-tutorial
-Three JS tutorial
+# Cygal
+Cygal is an application using SvelteJs Kit and Typescript for the frontend.
 
 ## Packaging set-up
+It uses pre-commit hooks to automatically point out issues in code such as trailing whitespace and debug statements.
+By pointing these issues out before code review, we hope this will allow a code reviewer to focus on the architecture of a change while not wasting time with trivial style nitpicks.
 
 ### Setup
 Install pre-commit and set-up hooks.
