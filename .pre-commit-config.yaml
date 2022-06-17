@@ -12,27 +12,13 @@ repos:
     -   id: check-merge-conflict
     -   id: end-of-file-fixer
     -   id: mixed-line-ending
- - repo: https://github.com/pre-commit/mirrors-eslint
-   rev: v8.15.0
-   hooks:
-   -   id: eslint
-       stages: [push]
-       files: \.[jt]sx?$  # *.js, *.jsx, *.ts and *.tsx
-       types: [file]
-       additional_dependencies:
-       -   eslint@8.15.0
-       -   eslint-loader@1.6.1
-       -   eslint-config-airbnb-base@15.0.0
-       -   eslint-config-airbnb-typescript@17.0.0
-       -   eslint-plugin-import@2.26.0
-       -   eslint-plugin-prettier@4.0.0
  - repo: local
    hooks:
    -   id: prettier
        name: Fix with Prettier
-       entry: bash -c 'cd cygal && yarn format'
+       entry: bash -c 'cd cygal && npm run format'
        language: node
    -   id: eslint
        name: Check with ESLint
-       entry: bash -c 'cd cygal && yarn lint'
+       entry: bash -c 'cd cygal && npm run lint'
        language: node
