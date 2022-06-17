@@ -16,9 +16,9 @@ repos:
    hooks:
    -   id: prettier
        name: Fix with Prettier
-       entry: bash -c 'cd cygal && npm ci && npm run format'
+       entry: bash -c 'cd cygal && npm run format'
        language: node
    -   id: eslint
        name: Check with ESLint
-       entry: bash -c 'cd cygal && npm ci && npm run lint'
+       entry: bash -c 'cd cygal && npm run lint'
        language: node
