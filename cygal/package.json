@@ -1,5 +1,7 @@
 {
   "name": "cygal",
+  "descrition": "Cyber gallery for bossenbroek.photo",
+  "author": "Manon Jacquin <manon.jacquin@gmail.com>, Anton Bossenbroek <anton@bossenbroek.photo>",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite dev",
