@@ -41,3 +41,26 @@ To run the tests,
 ```bash
 $ yarn test
 ```
+
+## Theme
+
+### Fonts
+
+```
+
+
+
+// For headers
+font-family: macho,sans-serif;
+font-weight: 700;
+font-style: normal;
+
+font-family: macho,sans-serif;
+font-weight: 500;
+font-style: normal;
+
+font-family: macho,sans-serif;
+font-weight: 400;
+font-style: normal;
+
+```
