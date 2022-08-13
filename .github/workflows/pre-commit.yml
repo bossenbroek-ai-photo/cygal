@@ -24,7 +24,7 @@ jobs:
           cache-dependency-path: cygal/yarn.lock
       - uses: actions/cache@v3
         with:
-          path: cygal/yarn.lock
+          path: cygal/node_modules
           key: ${{ runner.os }}-${{ matrix.node }}-cygal-${{ hashFiles('**/cygal/yarn.lock') }}  # yamllint disable-line rule:line-length
       - name: Install local dependencies
         run: cd cygal && yarn install --frozen-lockfile
