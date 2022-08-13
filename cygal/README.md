@@ -1,18 +1,11 @@
-# Cygal - Frontend
+# Cygal
 
-# create-svelte
-
-This project is built using [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+The basic readme.
 
 ## Developing
 
-The dependencies should already be installed when you clone the project. If not, run `npm install` before starting a development server:
-
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+ $ yarn dev
 ```
 
 ## Building
@@ -20,13 +13,31 @@ npm run dev -- --open
 To create a production version of your app:
 
 ```bash
-npm run build
+$ yarn build
 ```
 
-You can preview the production build with `npm run preview`.
+## Storybook
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Run storybook using,
 
-## Development process
+```bash
+$ yarn storybook
+```
 
-Before files commit, make sure to run `pre-commit run --all-files` - this will fix your errors before you commit.
+## Test
+
+### Pre-requisite
+
+Make sure to install playwright,
+
+```bash
+$ npx playwright install
+```
+
+### Run tests
+
+To run the tests,
+
+```bash
+$ yarn test
+```

@@ -5,11 +5,18 @@ import preprocess from 'svelte-preprocess';
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: preprocess(),
+  //
+  // Set-up for tailwind
+  // https://tailwindcss.com/docs/guides/sveltekit
+  preprocess: [
+    preprocess({
+      postcss: true
+    })
+  ],
 
   kit: {
-    adapter: adapter(),
-  },
+    adapter: adapter()
+  }
 };
 
 export default config;
