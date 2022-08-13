@@ -33,6 +33,12 @@ module.exports = {
     fontFamily: {
       macho: ['macho', 'sans-serif'],
       sans: ['ratio', 'sans-serif']
+    },
+    extend: {
+      backgroundImage: (theme) => ({
+        pyrenees:
+          "url('https://images.squarespace-cdn.com/content/v1/60c7a48c6d0b97331ff59d21/1630405323998-C87UE2IORNBKOQ4E82D0/pyrenees-gavarnie_cirque.jpg?format=2500w')"
+      })
     }
   },
   plugins: []

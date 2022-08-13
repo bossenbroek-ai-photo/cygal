@@ -2,7 +2,7 @@
   const { title, body, src, alt, ...restProps } = $$props;
 </script>
 
-<div class="grid gap-4 grid-cols-10 max-w-1xl items-end">
+<div class="grid gap-4 grid-cols-10 max-w-1xl items-end pb-16">
   <div class="col-span-8">
     <img {src} {alt} />
   </div>
