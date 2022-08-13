@@ -7,7 +7,7 @@ on:
     branches: [main, develop]
 
 jobs:
-  playwright:
+  cygal-test-check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
