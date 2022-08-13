@@ -3,20 +3,20 @@ import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	//
-	// Set-up for tailwind
-	// https://tailwindcss.com/docs/guides/sveltekit
-	preprocess: [
-		preprocess({
-			postcss: true
-		})
-	],
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  //
+  // Set-up for tailwind
+  // https://tailwindcss.com/docs/guides/sveltekit
+  preprocess: [
+    preprocess({
+      postcss: true
+    })
+  ],
 
-	kit: {
-		adapter: adapter()
-	}
+  kit: {
+    adapter: adapter()
+  }
 };
 
 export default config;

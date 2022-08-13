@@ -24,7 +24,6 @@ Run storybook using,
 $ yarn storybook
 ```
 
-
 ## Test
 
 ### Pre-requisite
