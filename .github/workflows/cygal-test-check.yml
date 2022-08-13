@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: cygal/yarn.lock
+          cache-dependency-path: cygal/yarn.lock
       - uses: actions/cache@v3
         with:
           path: cygal/node_modules
