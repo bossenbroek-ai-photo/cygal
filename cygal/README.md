@@ -25,3 +25,22 @@ Run storybook using,
 ```bash
 $ yarn storybook
 ```
+
+
+## Test
+
+### Pre-requisite
+
+Make sure to install playwright,
+
+```bash
+$ npx playwright install
+```
+
+### Run tests
+
+To run the tests,
+
+```bash
+$ yarn test
+```
