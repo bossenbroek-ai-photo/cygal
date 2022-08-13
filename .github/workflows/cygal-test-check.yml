@@ -15,17 +15,17 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: "18"
-        cache: 'pnpm'
+        cache: 'yarn'
     - uses: actions/cache@v3
       with:
           path: cygal/package-lock.json
           key: ${{ runner.os }}-${{ node-version }}-cygal-${{ hashFiles('**/cygal/package-lock.json') }}  # yamllint disable-line rule:line-length
     - name: Install playwright
       run: |
-        pnpx playwright install
+        yarn playwright install
     - name: Install local dependencies
-      run: cd cygal && pnpm install --frozen-lockfile
+      run: cd cygal && yarn install --frozen-lockfile
     - name: Run tests
-      run: cd cygal && pnpm test
+      run: cd cygal && yarn test
     - name: Run checks
-      run: cd cygal && pnpm check
+      run: cd cygal && yarn check
