@@ -3,18 +3,37 @@ repos:
  - repo: https://github.com/pre-commit/pre-commit-hooks
    rev: v2.3.0
    hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
-    -   id: pretty-format-json
-        args: [--autofix]
-    -   id: check-case-conflict
-    -   id: check-merge-conflict
-    -   id: end-of-file-fixer
-    -   id: mixed-line-ending
+    - id: check-yaml
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+    - id: pretty-format-json
+      args: [--autofix]
+    - id: check-case-conflict
+    - id: check-merge-conflict
+    - id: end-of-file-fixer
+    - id: mixed-line-ending
+
  - repo: local
    hooks:
-   -   id: prettier
-       name: Fix with Prettier
-       entry: bash -c 'cd cygal && yarn format'
-       language: node
+    - id: prettier
+      name: Fix with Prettier
+      entry: bash -c 'cd cygal && yarn format'
+      language: node
+
+ - repo: https://github.com/adrienverge/yamllint
+   rev: 'v1.26.3'
+   hooks:
+    - id: yamllint
+      name: yamllint
+      entry: yamllint
+      language: python
+      types: [yaml]
+
+ - repo: https://github.com/sirosen/check-jsonschema
+   rev: 0.14.3
+   hooks:
+    - id: check-jsonschema
+      files: ^\.github/actions/
+      name: "Check GitHub Workflows set timeout-minutes"
+      types: [yaml]
+      args: ["--schemafile", "https://json.schemastore.org/github-workflow"]

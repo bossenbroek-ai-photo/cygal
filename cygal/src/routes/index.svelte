@@ -1,5 +1,5 @@
 <script>
-  const themeColors = ["blue", "fuschsia", "gray", "yellow", "orange"];
+  const themeColors = ['blue', 'fuschsia', 'gray', 'yellow', 'orange'];
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -22,8 +22,7 @@
 <!--</div>-->
 
 <div>
-{#each themeColors as color}
-  <div class="bg-{color}"><p class="text-white">{color}</p></div>
-{/each}
+  {#each themeColors as color}
+    <div class="bg-{color}"><p class="text-white">{color}</p></div>
+  {/each}
 </div>
-
