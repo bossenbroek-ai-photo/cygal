@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -11,6 +13,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      white: colors.white,
       blue: {
         DEFAULT: '#3e3b6a'
       },
