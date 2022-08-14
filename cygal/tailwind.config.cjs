@@ -7,7 +7,7 @@ module.exports = {
     screens: {
       iphone: { min: '375px', max: '667px' },
       ipad: { min: '820px', max: '1180px' },
-      laptop: '1024px',
+      laptop: '1400px',
       large: '1600px'
     },
     colors: {

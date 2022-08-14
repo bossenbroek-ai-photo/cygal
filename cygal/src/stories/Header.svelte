@@ -11,6 +11,9 @@
 </svelte:head>
 
 <header>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   {#if showMenu}
     {#if bgIsDark}
       <div class="wrapper bg-gray content-start">
