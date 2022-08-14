@@ -1,7 +1,6 @@
 <script lang="ts">
   import Header from '../stories/Header.svelte';
-  import PhotoPyreneesLeft from '../lib/PhotoPyreneesLeft.svelte';
-  import PhotoPyreneesRight from '../lib/PhotoPyreneesRight.svelte';
+  import PhotoPyrenees from '../lib/PhotoPyrenees.svelte';
 
   import data from '../../src/pyrenees.json';
 
@@ -22,12 +21,13 @@
 </div>
 <div class="container mx-auto py-16 px-4">
   {#each data as photo}
-    {#if photo.position === 'right'}
-      <PhotoPyreneesRight title={photo.title} body={photo.body} src={photo.src} alt={photo.alt} />
-    {:else if photo.position === 'left'}
-      <PhotoPyreneesLeft title={photo.title} body={photo.body} src={photo.src} alt={photo.alt} />
-    {:else}
-      <p class="text-red">Currently not implemented ${photo.position}</p>
-    {/if}
+    <PhotoPyrenees
+      position={photo.position}
+      title={photo.title}
+      date={photo.date}
+      body={photo.body}
+      src={photo.src}
+      alt={photo.alt}
+    />
   {/each}
 </div>
