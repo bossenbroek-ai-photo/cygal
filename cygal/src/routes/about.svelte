@@ -1,5 +1,6 @@
 <script>
-  import Header from '../stories/Header.svelte';
+  // import Header from '../stories/Header.svelte';
+  import NavBar from '../lib/NavBar.svelte';
   import Card from '../lib/Card.svelte';
 
   export const src =
@@ -7,7 +8,7 @@
   export const alt = 'photo-about';
 </script>
 
-<Header />
+<NavBar />
 <div class="container mx-auto py-16 px-4">
   <div class="grid gap-4 grid-cols-2 items-center ">
     <div class="w-full">

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Header from '../stories/Header.svelte';
   import PhotoPyrenees from '../lib/PhotoPyrenees.svelte';
+  import NavBar from '../lib/NavBar.svelte';
 
   import data from '../../src/pyrenees.json';
 
@@ -10,7 +10,7 @@
   }
 </script>
 
-<Header />
+<NavBar />
 <div class="h-screen w-full bg-cover bg-pyrenees">
   <p
     class="text-4xl font-macho laptop:text-6xl text-center font-bold text-gray-800 px-24 large:px-22 pt-36 "
