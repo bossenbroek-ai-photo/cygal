@@ -12,8 +12,12 @@
 
 <Header />
 <div class="h-screen w-full bg-cover bg-pyrenees">
-  <p class="mb-2 text-6xl text-center font-bold text-gray-800 p-16 ">Pyrénées</p>
-  <p class="mb-2 text-2xl text-gray-900 py-16 px-80">
+  <p
+    class="text-4xl font-macho laptop:text-6xl text-center font-bold text-gray-800 px-24 large:px-22 pt-36 "
+  >
+    Pyrénées
+  </p>
+  <p class="laptop:text-2xl text-gray-900 px-24 pt-8 laptop:px-60 laptop:pt-16">
     Hidden in plain sight throughout the mountain peaks are the deities that our forefathers and
     mothers once worshipped. Inspired by shinrin-yoku (Japanese Forest Bathing), my wife and I hike
     multiple days to capture the spirits and serendipity that our nature harbors.
