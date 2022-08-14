@@ -8,7 +8,7 @@ module.exports = {
       iphone: { min: '375px', max: '667px' },
       ipad: { min: '820px', max: '1180px' },
       laptop: '1024px',
-      large: '1600px'
+      large: '1400px'
     },
     colors: {
       transparent: 'transparent',
