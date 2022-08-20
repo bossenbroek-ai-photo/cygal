@@ -1,5 +1,4 @@
 <script>
-  // import Header from '../stories/Header.svelte';
   import NavBar from '../lib/NavBar.svelte';
   import Card from '../lib/Card.svelte';
 
@@ -10,7 +9,7 @@
 
 <NavBar />
 <div class="container mx-auto py-16 px-4">
-  <div class="grid gap-4 grid-cols-2 items-center ">
+  <div class="grid gap-4 grid-cols-1 laptop:grid-cols-2 items-center ">
     <div class="w-full">
       <img class="object-cover object-bottom" {src} {alt} />
     </div>

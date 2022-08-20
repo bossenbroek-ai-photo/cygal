@@ -13,7 +13,7 @@
 <NavBar />
 <div class="h-screen w-full bg-cover bg-pyrenees">
   <p
-    class="text-4xl font-macho laptop:text-6xl text-center font-bold text-gray-800 px-24 large:px-22 pt-36 "
+    class="text-4xl font-macho laptop:text-6xl text-center font-bold text-gray-800 ipad:px-48 large:px-22 pt-36 "
   >
     Pyrénées
   </p>
