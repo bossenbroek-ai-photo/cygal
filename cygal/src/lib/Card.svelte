@@ -6,7 +6,7 @@
 
 <div class="flex flex-col items-center bg-white md:flex-row md:max-w-xl w-full ">
   <div class="flex flex-col justify-between p-4 leading-normal">
-    <p class="mb-2 text-3xl font-bold text-gray-800">{title}</p>
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{desc}</p>
+    <p class="mb-2 iphone:text-xl text-3xl font-bold text-gray-800">{title}</p>
+    <p class="mb-3 iphone:text-sm font-normal text-gray-700 dark:text-gray-400">{desc}</p>
   </div>
 </div>
