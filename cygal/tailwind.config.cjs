@@ -5,9 +5,9 @@ module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     screens: {
-      iphone: { min: '375px', max: '667px' },
+      iphone: { min: '375px', max: '820px' },
       ipad: { min: '820px', max: '1180px' },
-      laptop: '1024px',
+      laptop: '1180px',
       large: '1400px'
     },
     colors: {
@@ -17,7 +17,7 @@ module.exports = {
       blue: {
         DEFAULT: '#3e3b6a'
       },
-      fuschsia: {
+      fushia: {
         DEFAULT: '#63455d'
       },
       gray: {
