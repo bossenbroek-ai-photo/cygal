@@ -23,11 +23,11 @@ jobs:
         with:
           path: cygal/node_modules
           key: ${{ runner.os }}-${{ matrix.node }}-cygal-${{ hashFiles('**/cygal/yarn.lock') }}  # yamllint disable-line rule:line-length
+      - name: Install local dependencies
+        run: cd cygal && yarn install --frozen-lockfile
       - name: Install playwright
         run: |
           npx playwright install
-      - name: Install local dependencies
-        run: cd cygal && yarn install --frozen-lockfile
       - name: Run tests
         run: cd cygal && yarn test
       - name: Run checks
