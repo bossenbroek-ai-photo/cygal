@@ -25,7 +25,6 @@
       <a href="/about">About</a>
       <a href="/pyrenees">Pyrenees</a>
       <a href="/7rad">7Rad</a>
-      <a href="/contact">Contact</a>
     </div>
 
     {#if showMobileMenu}
@@ -40,7 +39,6 @@
                 >Pyrenees</a
               >
               <a class="text-4xl ipad:text-5xl" href="/" on:click={handleClickMobileMenu}>7Rad</a>
-              <a class="text-4xl ipad:text-5xl" href="/" on:click={handleClickMobileMenu}>Contact</a
               >
             </div>
 
