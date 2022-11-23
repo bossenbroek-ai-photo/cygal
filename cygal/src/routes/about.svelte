@@ -15,7 +15,6 @@
     </div>
     <div class="flex flex-col justify-between p-4 leading-normal">
       <Card />
-      <a class="pl-4 hover:underline font-semibold" href="/contact">Get in touch</a>
     </div>
   </div>
 </div>

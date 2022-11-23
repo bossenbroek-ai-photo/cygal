@@ -27,6 +27,6 @@ jobs:
           path: cygal/node_modules
           key: ${{ runner.os }}-${{ matrix.node }}-cygal-${{ hashFiles('**/cygal/yarn.lock') }}  # yamllint disable-line rule:line-length
       - name: Install local dependencies
-        run: cd cygal && yarn install --frozen-lockfile
+        run: cd cygal && yarn install
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.0

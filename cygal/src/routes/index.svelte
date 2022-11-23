@@ -1,28 +1,130 @@
-<script>
-  const themeColors = ['blue', 'fuschsia', 'gray', 'yellow', 'orange'];
+<script lang="ts">
+  import NavBar from '../lib/NavBar.svelte';
+  import '@beyonk/gdpr-cookie-consent-banner/dist/style.css';
+  import GdprBanner from '@beyonk/gdpr-cookie-consent-banner';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<h2>With tailwind</h2>
+<NavBar bgIsDark />
 
-<p>
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-  in culpa qui officia deserunt mollit anim id est laborum."
-</p>
+<section class="w-full h-screen">
+  <picture>
+    <source
+      media="(min-width: 1600px)"
+      srcset="https://storage.googleapis.com/public_website_asset/landing_1600px-3up.jpg 3x"
+    />
+    <source
+      media="(min-width: 1600px)"
+      srcset="https://storage.googleapis.com/public_website_asset/landing_1600px.jpg"
+    />
+    <source
+      media="(min-width: 667px)"
+      srcset="https://storage.googleapis.com/public_website_asset/landing_667px-3up.jpg 3x"
+    />
+    <source
+      media="(min-width: 820px)"
+      srcset="https://storage.googleapis.com/public_website_asset/landing_820px-3up.jpg 3x"
+    />
+    <source
+      media="(min-width: 375px)"
+      srcset="https://storage.googleapis.com/public_website_asset/landing_375px-3up.jpg 3x"
+    />
+    <source
+      media="(min-width: 1180px)"
+      srcset="https://storage.googleapis.com/public_website_asset/landing_1180px-3up.jpg 3x"
+    />
+    <source
+      media="(min-width: 375px)"
+      srcset="https://storage.googleapis.com/public_website_asset/landing_375px.jpg"
+    />
+    <source
+      media="(min-width: 1400px)"
+      srcset="https://storage.googleapis.com/public_website_asset/landing_1400px.jpg"
+    />
 
-<!--<div>-->
-<!--  <div class="bg-blue"><p class="text-white">blue</p></div>-->
-<!--  <div class="bg-fuschsia"><p class="text-white">fuschsia</p></div>-->
-<!--  <div class="bg-gray"><p class="text-white">gray</p></div>-->
-<!--  <div class="bg-yellow"><p class="text-white">yellow</p></div>-->
-<!--  <div class="bg-orange"><p class="text-white">orange</p></div>-->
-<!--</div>-->
+    <img
+      class="laptop: laptop:w-full object-cover large:hidden ipad:hidden iphone:hidden"
+      src="https://storage.googleapis.com/public_website_asset/landing_1400px.jpg"
+      alt="greenhouses"
+    />
+    <img
+      class="hidden large:block large:w-full large:h-[95vh] object-cover"
+      src="https://storage.googleapis.com/public_website_asset/landing_1600px.jpg"
+      alt="greenhouses"
+    />
+    <img
+      class="hidden ipad:block ipad:w-full ipad:h-full object-cover"
+      src="https://storage.googleapis.com/public_website_asset/landing_820.jpg"
+      alt="greenhouses"
+    />
+    <img
+      class="hidden iphone:block iphone:w-full iphone:h-[50vh] object-cover "
+      src="https://storage.googleapis.com/public_website_asset/landing_820.jpg"
+      alt="greenhouses"
+    />
+  </picture>
 
-<div>
-  {#each themeColors as color}
-    <div class="bg-{color}"><p class="text-white">{color}</p></div>
-  {/each}
-</div>
+  <nav class="p-4 flex w-full justify-end bg-gray">
+    <p class="text-xs text-orange">© Anton Bossenbroek 2022</p>
+  </nav>
+
+  <GdprBanner
+    cookieName="gdpr_consent"
+    showEditIcon={false}
+    description="Welcome! Please consider letting us to have your consent to store cookies"
+  />
+</section>
+
+<!--<section class="bg-white grid grid-cols-1 laptop:grid-cols-2">-->
+<!--  <div class="m-8 max-w-2xl px-6 py-16 text-center rounded border-1 border-yellow">-->
+<!--    <div class="flex flex-col items-center justify-center">-->
+<!--      <a href="/pyrenees" class="text-3xl text-gray-500 ">Pyrenées</a>-->
+<!--    </div>-->
+<!--    <p class="mt-4 text-gray-600">-->
+<!--      Hidden in plain sight throughout the mountain peaks are the deities that our forefathers and-->
+<!--      mothers once worshipped. Inspired by shinrin-yoku (Japanese Forest Bathing), my wife and I-->
+<!--      hike multiple days to capture the spirits and serendipity that our nature harbors.-->
+<!--    </p>-->
+<!--    <br />-->
+<!--    <a class="mt-8 hover:underline hover:text-orange text-sm" href="/pyrenees">See project</a>-->
+<!--    <img-->
+<!--      class="mt-8 h-80 w-full rounded-md object-cover object-center shadow"-->
+<!--      alt="pyrenees-photo"-->
+<!--      src="https://images.squarespace-cdn.com/content/v1/60c7a48c6d0b97331ff59d21/1630403499954-88CW9DR6JP4BRSGAZSQO/pyrenees-vallee_de_Remun%CC%83e.jpg?format=2500w"-->
+<!--    />-->
+<!--  </div>-->
+<!--  <div class="m-8 max-w-2xl px-6 py-16 text-center">-->
+<!--    <div class="flex flex-col items-center justify-center">-->
+<!--      <a href="/7rad" class="text-3xl text-gray-500 ">Current project(s)</a>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;    <p class="mt-4 text-gray-600">7Rad - artificial light at night</p>&ndash;&gt;-->
+<!--    <br />-->
+<!--    <a class="mt-8 hover:underline hover:text-orange text-sm" href="/7rad"-->
+<!--      >7Rad - artificial light at night</a-->
+<!--    >-->
+<!--    <img-->
+<!--      class="mt-8 h-80 w-full rounded-md object-cover object-center shadow"-->
+<!--      alt="7-rad-project"-->
+<!--      src="https://storage.googleapis.com/public_website_asset/landing_1400px.jpg"-->
+<!--    />-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--<section class="bg-white">-->
+<!--  <div class="mx-auto max-w-3xl px-6 py-16 text-center">-->
+<!--    <div class="flex flex-col items-center justify-center">-->
+<!--      <a href="/about" class="text-3xl text-gray-500 ">About</a>-->
+<!--    </div>-->
+<!--    <p class="mt-4 text-gray-600">-->
+<!--      Anton Bossenbroek is a Dutch / French photographer and entrepreneur based in Torino, Italy. He-->
+<!--      started his photo career after spending years in corporate life working in artificial-->
+<!--      intelligence and data science.-->
+<!--    </p>-->
+<!--    <br />-->
+<!--    <a class="mt-8 hover:underline hover:text-orange text-sm" href="/about">Read more</a>-->
+<!--    <img-->
+<!--      class="mt-8 h-80 w-full rounded-md object-cover object-center shadow"-->
+<!--      alt="photographer"-->
+<!--      src="https://images.squarespace-cdn.com/content/v1/60c7a48c6d0b97331ff59d21/1630421946511-I1DGT92KY7GKV7PYWE7R/abossenbroek_profile_photo.jpg?format=1500w"-->
+<!--    />-->
+<!--  </div>-->
+<!--</section>-->
