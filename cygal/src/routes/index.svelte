@@ -1,5 +1,7 @@
 <script lang="ts">
   import NavBar from '../lib/NavBar.svelte';
+  import '@beyonk/gdpr-cookie-consent-banner/dist/style.css';
+  import GdprBanner from '@beyonk/gdpr-cookie-consent-banner';
 </script>
 
 <NavBar bgIsDark />
@@ -60,41 +62,16 @@
       alt="greenhouses"
     />
   </picture>
-</section>
 
-<section class="bg-white grid grid-cols-1 laptop:grid-cols-2">
-  <div class="m-8 max-w-2xl px-6 py-16 text-center rounded border-1 border-yellow">
-    <div class="flex flex-col items-center justify-center">
-      <a href="/pyrenees" class="text-3xl text-gray-500 ">Pyrenées</a>
-    </div>
-    <p class="mt-4 text-gray-600">
-      Hidden in plain sight throughout the mountain peaks are the deities that our forefathers and
-      mothers once worshipped. Inspired by shinrin-yoku (Japanese Forest Bathing), my wife and I
-      hike multiple days to capture the spirits and serendipity that our nature harbors.
-    </p>
-    <br />
-    <a class="mt-8 hover:underline hover:text-orange text-sm" href="/pyrenees">See project</a>
-    <img
-      class="mt-8 h-80 w-full rounded-md object-cover object-center shadow"
-      alt="pyrenees-photo"
-      src="https://images.squarespace-cdn.com/content/v1/60c7a48c6d0b97331ff59d21/1630403499954-88CW9DR6JP4BRSGAZSQO/pyrenees-vallee_de_Remun%CC%83e.jpg?format=2500w"
-    />
-  </div>
-  <div class="m-8 max-w-2xl px-6 py-16 text-center">
-    <div class="flex flex-col items-center justify-center">
-      <a href="/7rad" class="text-3xl text-gray-500 ">Current project(s)</a>
-    </div>
-    <!--    <p class="mt-4 text-gray-600">7Rad - artificial light at night</p>-->
-    <br />
-    <a class="mt-8 hover:underline hover:text-orange text-sm" href="/7rad"
-      >7Rad - artificial light at night</a
-    >
-    <img
-      class="mt-8 h-80 w-full rounded-md object-cover object-center shadow"
-      alt="7-rad-project"
-      src="https://storage.googleapis.com/public_website_asset/landing_1400px.jpg"
-    />
-  </div>
+  <nav class="p-4 flex w-full justify-end bg-gray">
+    <p class="text-xs text-orange">© Anton Bossenbroek 2022</p>
+  </nav>
+
+  <GdprBanner
+    cookieName="gdpr_consent"
+    showEditIcon={false}
+    description="Welcome! Please consider letting us to have your consent to store cookies"
+  />
 </section>
 
 <!--<section class="bg-white grid grid-cols-1 laptop:grid-cols-2">-->
